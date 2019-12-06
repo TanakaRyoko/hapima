@@ -10,7 +10,7 @@ class DiaryController extends Controller
 {
        public function add()
 {
-            return view("views.diaries.create");
+            return view("diaries.create");
 }
 
 }

@@ -5,9 +5,9 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
-        <title>MyNews</title>
+        <title>日々の記録</title>
     </head>
     <body>
-        <h1>Myニュース作成画面</h1>
+        <h1>日々の記録作成</h1>
     </body>
 </html>
