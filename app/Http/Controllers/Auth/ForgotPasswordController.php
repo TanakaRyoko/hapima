@@ -1,8 +1,8 @@
 <?php
 
-namespace App\Http\Controllers\Auth;
+namespace はぴワーママライフ\Http\Controllers\Auth;
 
-use App\Http\Controllers\Controller;
+use はぴワーママライフ\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\SendsPasswordResetEmails;
 
 class ForgotPasswordController extends Controller

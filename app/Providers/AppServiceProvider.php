@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Providers;
+namespace はぴワーママライフ\Providers;
 
 use Illuminate\Support\ServiceProvider;
 

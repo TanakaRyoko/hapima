@@ -1,10 +1,10 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace はぴワーママライフ\Http\Controllers;
 
-use App\Http\Controllers\Controller;
+use はぴワーママライフ\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-
+use はぴワーママライフ\Diary;
 
 class DiaryController extends Controller
 {
@@ -17,8 +17,8 @@ class DiaryController extends Controller
         {
         
             //Varidationを行う
-            $this->validate($request,News::$rules);
-            $news=new News;
+            $this->validate($request,Diary::$rules);
+            $diaries=new Diary;
             $form=$request->all();
             
             // //フォームから画像が送信されてきたら、保存して、$news->image_pathに画像のパスを保存する。
@@ -34,10 +34,23 @@ class DiaryController extends Controller
             // unset($form['image']);
             
             //データベースに保存する
-            $news->fill($form);
-            $news->save();
+            $diaries->fill($form);
+            $diaries->save();
             
             
-            return redirect('admin/diaries/create');
+            return redirect('diaries/create');
             }
+        public function index(Request $request)
+        {
+      $cond_title = $request->cond_title;
+      if ($cond_title != '') {
+          // 検索されたら検索結果を取得する
+          $posts = Diary::where('title', $cond_title)->get();
+      } else {
+          // それ以外はすべてのニュースを取得する
+          $posts = Diary::all();
+      }
+      return view('diaries.index', ['posts' => $posts, 'cond_title' => $cond_title]);
+  }
+
         }

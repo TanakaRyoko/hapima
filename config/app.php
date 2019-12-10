@@ -169,11 +169,11 @@ return [
         /*
          * Application Service Providers...
          */
-        App\Providers\AppServiceProvider::class,
-        App\Providers\AuthServiceProvider::class,
-        // App\Providers\BroadcastServiceProvider::class,
-        App\Providers\EventServiceProvider::class,
-        App\Providers\RouteServiceProvider::class,
+        はぴワーママライフ\Providers\AppServiceProvider::class,
+        はぴワーママライフ\Providers\AuthServiceProvider::class,
+        // はぴワーママライフ\Providers\BroadcastServiceProvider::class,
+        はぴワーママライフ\Providers\EventServiceProvider::class,
+        はぴワーママライフ\Providers\RouteServiceProvider::class,
 
     ],
 
