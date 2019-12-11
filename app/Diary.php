@@ -1,6 +1,6 @@
 <?php
 
-namespace はぴワーママライフ;
+namespace hapima;
 
 use Illuminate\Database\Eloquent\Model;
 
@@ -9,14 +9,14 @@ class Diary extends Model
     protected $guarded = array('id');
     
     public static $rules = array(
-        'title' => 'required',
-        'body' => 'required',
+        'date' => 'required',
+        'content' => 'required',
     );
     
     
     public function histories()
     {
-        return $this->hasMany('はぴワーママライフ\History');
+        return $this->hasMany('hapima\History');
     }
 
 }

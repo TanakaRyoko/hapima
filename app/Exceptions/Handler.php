@@ -1,6 +1,6 @@
 <?php
 
-namespace はぴワーママライフ\Exceptions;
+namespace hapima\Exceptions;
 
 use Exception;
 use Illuminate\Foundation\Exceptions\Handler as ExceptionHandler;

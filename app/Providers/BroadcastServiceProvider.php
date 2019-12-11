@@ -1,6 +1,6 @@
 <?php
 
-namespace はぴワーママライフ\Providers;
+namespace hapima\Providers;
 
 use Illuminate\Support\ServiceProvider;
 use Illuminate\Support\Facades\Broadcast;

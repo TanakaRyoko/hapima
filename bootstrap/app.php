@@ -28,17 +28,17 @@ $app = new Illuminate\Foundation\Application(
 
 $app->singleton(
     Illuminate\Contracts\Http\Kernel::class,
-    はぴワーママライフ\Http\Kernel::class
+    hapima\Http\Kernel::class
 );
 
 $app->singleton(
     Illuminate\Contracts\Console\Kernel::class,
-    はぴワーママライフ\Console\Kernel::class
+    hapima\Console\Kernel::class
 );
 
 $app->singleton(
     Illuminate\Contracts\Debug\ExceptionHandler::class,
-    はぴワーママライフ\Exceptions\Handler::class
+    hapima\Exceptions\Handler::class
 );
 
 /*

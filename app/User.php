@@ -1,10 +1,11 @@
 <?php
 
-namespace はぴワーママライフ;
+namespace hapima;
 
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Foundation\Auth\User as Authenticatable;
+use Illuminate\Database\Eloquent\Model;
 
 class User extends Authenticatable
 {
@@ -36,4 +37,19 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+    
+    protected $guarded =array('id');
+    
+    
+    
+     public static $rules = array(
+        'name' => 'required',
+        'gender' => 'required',
+        'prefecture' => 'required',
+        'family_size' => 'required',
+        'working_days' => 'required',
+        'commuting_time' => 'required',
+        'partner_service_level' => 'required',
+          
+        );
 }

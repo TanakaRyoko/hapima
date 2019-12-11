@@ -1,6 +1,6 @@
 <?php
 
-namespace はぴワーママライフ\Providers;
+namespace hapima\Providers;
 
 use Illuminate\Support\Facades\Gate;
 use Illuminate\Foundation\Support\Providers\AuthServiceProvider as ServiceProvider;
@@ -13,7 +13,7 @@ class AuthServiceProvider extends ServiceProvider
      * @var array
      */
     protected $policies = [
-        // 'はぴワーママライフ\Model' => 'はぴワーママライフ\Policies\ModelPolicy',
+        // 'hapima\Model' => 'hapima\Policies\ModelPolicy',
     ];
 
     /**

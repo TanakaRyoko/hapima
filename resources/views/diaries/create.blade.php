@@ -20,21 +20,15 @@
                         </ul>
                     @endif
                     <div class="form-group row">
-                        <label class="col-md-2" for="title">タイトル</label>
+                        <label class="col-md-2" for="date">日付</label>
                         <div class="col-md-10">
-                            <input type="text" class="form-control" name="title" value="{{old("title")}}">
+                            <<input type="date" class="form-control" name="date" value="{{old("date")}}">
                         </div>
                     </div>
                     <div class="form-group row">
-                        <label class="col-md-2" for="body">本文</label>
+                        <label class="col-md-2" for="content">本文</label>
                         <div class="col-md-10">
-                            <textarea class="form-control" name="body" rows="20">{{old('body')}}</textarea>
-                        </div>
-                    </div>
-                    <div class="form-group row">
-                        <label class="col-md-2" for="title">画像</label>
-                        <div class="col-md-10">
-                            <input type="file" class="form-control-file" name="image">
+                            <textarea class="form-control" name="content" rows="20">{{old('content')}}</textarea>
                         </div>
                     </div>
                     {{csrf_field()}}

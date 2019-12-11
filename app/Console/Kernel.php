@@ -1,6 +1,6 @@
 <?php
 
-namespace はぴワーママライフ\Console;
+namespace hapima\Console;
 
 use Illuminate\Console\Scheduling\Schedule;
 use Illuminate\Foundation\Console\Kernel as ConsoleKernel;

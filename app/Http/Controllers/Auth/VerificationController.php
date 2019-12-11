@@ -1,8 +1,8 @@
 <?php
 
-namespace はぴワーママライフ\Http\Controllers\Auth;
+namespace hapima\Http\Controllers\Auth;
 
-use はぴワーママライフ\Http\Controllers\Controller;
+use hapima\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\VerifiesEmails;
 
 class VerificationController extends Controller

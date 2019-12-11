@@ -1,10 +1,11 @@
 <?php
 
-namespace はぴワーママライフ\Http\Controllers;
+namespace hapima\Http\Controllers;
 
-use はぴワーママライフ\Http\Controllers\Controller;
+use hapima\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-use はぴワーママライフ\Diary;
+use hapima\Diary;
+use Illuminate\Support\Facades\Auth; //追記した
 
 class DiaryController extends Controller
 {
@@ -15,7 +16,7 @@ class DiaryController extends Controller
 
         public function create(Request $request)
         {
-        
+            $user = Auth::user();
             //Varidationを行う
             $this->validate($request,Diary::$rules);
             $diaries=new Diary;
@@ -38,8 +39,9 @@ class DiaryController extends Controller
             $diaries->save();
             
             
-            return redirect('diaries/create');
+            return redirect('diaries/create',['user_id' => $user]);//追記した
             }
+            
         public function index(Request $request)
         {
       $cond_title = $request->cond_title;

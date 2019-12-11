@@ -1,6 +1,6 @@
 <?php
 
-namespace はぴワーママライフ\Providers;
+namespace hapima\Providers;
 
 use Illuminate\Support\Facades\Route;
 use Illuminate\Foundation\Support\Providers\RouteServiceProvider as ServiceProvider;
@@ -14,7 +14,7 @@ class RouteServiceProvider extends ServiceProvider
      *
      * @var string
      */
-    protected $namespace = 'はぴワーママライフ\Http\Controllers';
+    protected $namespace = 'hapima\Http\Controllers';
 
     /**
      * Define your route model bindings, pattern filters, etc.

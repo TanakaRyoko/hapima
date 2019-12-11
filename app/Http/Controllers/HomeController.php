@@ -1,6 +1,6 @@
 <?php
 
-namespace はぴワーママライフ\Http\Controllers;
+namespace hapima\Http\Controllers;
 
 use Illuminate\Http\Request;
 

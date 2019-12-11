@@ -1,6 +1,6 @@
 <?php
 
-namespace はぴワーママライフ\Http\Middleware;
+namespace hapima\Http\Middleware;
 
 use Closure;
 use Illuminate\Support\Facades\Auth;
