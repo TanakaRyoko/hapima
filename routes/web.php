@@ -18,7 +18,7 @@ Route::get('/', function () {
 Route::get('diaries/create', 'DiaryController@add')->middleware('auth');
 Route::post('diaries/create', 'DiaryController@create')->middleware('auth');
 Route::get('diaries/', 'DiaryController@index')->middleware('auth');
-Route::get('/profile', 'ProfileController@edit')->middleware('auth');
+Route::get('profile', 'ProfileController@edit')->middleware('auth');
 Route::post('profile/edit', 'ProfileController@update')->middleware('auth');
 
 Auth::routes();

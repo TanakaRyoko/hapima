@@ -85,6 +85,16 @@
                       　 </select>
                     </div>
                     
+                    <!-- パートナーの貢献度 -->
+                    <div class= "form-group row">
+                        <label class="col-md-2" for="introduction">パートナーの貢献度</label>
+                        <select>
+                      　 <option value=2 >低</option>
+                      　 <option value=3 >中</option>
+                      　 <option value=4 >高</option>
+                      　  </select>
+                    </div>
+                    
                     
                         <input type="hidden" name="id" value="{{$profile_form->id}}">
                         {{csrf_field()}}

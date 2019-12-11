@@ -6,7 +6,7 @@ use hapima\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
-use App\User;
+use hapima\User;
 
 class ProfileController extends Controller
 {
