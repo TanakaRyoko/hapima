@@ -1,10 +1,10 @@
 <?php
 
-namespace hapima\Http\Controllers;
+namespace App\Http\Controllers;
 
-use hapima\Http\Controllers\Controller;
+use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-use hapima\Diary;
+use App\Diary;
 use Illuminate\Support\Facades\Auth; //追記した
 
 class DiaryController extends Controller

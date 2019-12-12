@@ -1,6 +1,6 @@
 <?php
 
-namespace hapima;
+namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
@@ -16,7 +16,7 @@ class Diary extends Model
     
     public function histories()
     {
-        return $this->hasMany('hapima\History');
+        return $this->hasMany('App\History');
     }
 
 }

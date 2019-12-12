@@ -169,11 +169,11 @@ return [
         /*
          * Application Service Providers...
          */
-        hapima\Providers\AppServiceProvider::class,
-        hapima\Providers\AuthServiceProvider::class,
-        // hapima\Providers\BroadcastServiceProvider::class,
-        hapima\Providers\EventServiceProvider::class,
-        hapima\Providers\RouteServiceProvider::class,
+        App\Providers\AppServiceProvider::class,
+        App\Providers\AuthServiceProvider::class,
+        // App\Providers\BroadcastServiceProvider::class,
+        App\Providers\EventServiceProvider::class,
+        App\Providers\RouteServiceProvider::class,
 
     ],
 

@@ -1,12 +1,12 @@
 <?php
 
-namespace hapima\Http\Controllers;
+namespace App\Http\Controllers;
 
-use hapima\Http\Controllers\Controller;
+use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
-use hapima\User;
+use App\User;
 
 class ProfileController extends Controller
 {
