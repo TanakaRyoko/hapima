@@ -1,26 +1,33 @@
+@extends('layouts.a')
+@section('title','タイムスケジュール登録')
 
+@section('content')
 
 <!--<form class="form-inline" action="index.html" method="post">-->
 <div class= "container">
-    <label for="date">日付</label>
+    <div class="row">
+            <div class="col-md-8 mx-auto">
+                <h2>タイムスケジュール登録</h2>
     
-    <div class="form-group row">
-        <div class="col-md-2">
-           <input type="date" class="form-control" name="date" value="{{old("date")}}">
-        </div>
-        <div class="col-md-1">
-            <h5>～</h5>
-        </div>
-        <div class="col-md-2">
-            <input type='time' class="form-control">
-        </div>
-        <div class="col-md-3">
-            <input type='text' class="form-control">
+                    <div class="form-group row">
+                        <div class="col-md-2">
+                           <input type="time" class="form-control" name="time" value="{{old("time")}}">
+                        </div>
+                        <div class="col-md-1">
+                            <h5>～</h5>
+                        </div>
+                        <div class="col-md-2">
+                            <input type='time' class="form-control">
+                        </div>
+                        <div class="col-md-5">
+                            <input type='text' class="form-control">
+                        </div>
+                        <button type="submit" class="btn btn-primary">登録</button>
+                    </div>
+                </div>
         </div>
     </div>
-                    
-</div>
-    <button type="submit" class="btn btn-primary">登録</button>
+@endsection
 
 <!--<form class="form-inline" action="index.html" method="post">-->
 <!--  <div class="form-group  mb-2">-->

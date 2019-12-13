@@ -25,16 +25,27 @@ class ProfileController extends Controller
     public function update(Request $request)
     {
          //validationをかける
-         $this ->validate($request, User::$rules);
+        //  $this ->validate($request, User::$rules);
+         
          //User Modelからデータを取得する
          $user=User::find($request->id);
+         
          //送信されてきたフォームデータを格納する
          $profile_form= $request->all();
          
-         unset($profile_form['_token']);
+         // $user->fill($profile_form);をする前にuser_idを入れてあげる
+         $profile_form['user_id'] = $user->id;
          
-         $user->fill($profile_form)->save();
-     
+         unset($profile_form['_token']);
+         \Debugbar::info($profile_form);
+        \Debugbar::info($user);
+        \Debugbar::info($profile_form["gender"]);
+         $user->fill($profile_form);
+         $user->fill(["gender"=>"male"]);
+         $user->fill(["partner_service_level"=>$profile_form["partner_service_level"]]);
+        //  $this ->validate($request, User::$rules);
+         $user->save();
+        
          return redirect('profile/edit');
     }
 }

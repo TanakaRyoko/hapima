@@ -23,7 +23,7 @@ Route::get('profile', 'ProfileController@edit')->middleware('auth');
 Route::post('profile/edit', 'ProfileController@update')->middleware('auth');
 
 Route::get('/time_schedules', 'TimeScheduleController@index')->middleware('auth');
-Route::get('/time_schedules/ctrate', 'TimeScheduleController@add')->middleware('auth');
+Route::get('/time_schedules/create', 'TimeScheduleController@add')->middleware('auth');
 Route::post('/time_schedules/create', 'TimeScheduleController@create')->middleware('auth');
 Route::get('/time_schedules/edit', 'TimeScheduleController@edit')->middleware('auth');
 Route::post('/time_schedules/edit', 'TimeScheduleController@update')->middleware('auth');
