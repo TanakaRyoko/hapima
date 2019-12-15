@@ -18,6 +18,9 @@ Route::get('/', function () {
 Route::get('diaries/create', 'DiaryController@add')->middleware('auth');
 Route::post('diaries/create', 'DiaryController@create')->middleware('auth');
 Route::get('diaries/', 'DiaryController@index')->middleware('auth');
+Route::get('diaries/edit', 'DiaryController@edit')->middleware('auth');
+Route::post('diaries/edit', 'DiaryController@update')->middleware('auth');
+Route::get('diaries/delete', 'DiaryController@delete')->middleware('auth');
 
 Route::get('profile/edit', 'ProfileController@edit')->middleware('auth');
 Route::post('profile/edit', 'ProfileController@update')->middleware('auth');

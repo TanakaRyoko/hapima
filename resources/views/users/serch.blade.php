@@ -1,65 +1,91 @@
 @extends('layouts.a')
-@section('title','ユーザー検索'
+@section('title','ユーザー検索')
 
 @section('content')
-    <div class="container">
-        <div class="row">
-            <h2>ユーザー検索/h2>
-            <div class="col-md-8">
-                <form action="{{ action('Admin\NewsController@index')}}"method="get">
-                    <div class="form-group row">
-                        <label class="col-md-2">タイトル</label>
-                        <div class="col-md-8">
-                            <input type="text" class="form-control" name="cond_title" value={{ $cond_title}}>
-                        </div>
-                        <div class="col-md-2">
-                            {{ csrf_field()}}
-                        </div>
+<div class="container">
+    <div class="row">
+        <h2>ユーザー検索/h2>
+        <div class="col-md-8">
+            <form action="{{ action('UserController@serch')}}"method="get">
+                
+                <!-- 性別 -->
+                <div class= "form-group row">
+                    <label class="col-md-4">性別</label>
+                    <div class="col-md-8">
+                        <input type="radio" name="gender" value="male"{{$profile_form->gender === 'male' ? 'checked' : ''}}>男性
+                        <input type="radio" name="gender" value="female"{{$profile_form->gender === 'female' ? 'checked' : ''}}>女性
                     </div>
-                </form>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-md-4">
-                <a href="{{ action('TimeScheduleController@create')}}" role="button" class="btn btn-primary">タイムスケジュール追加</a>
-            </div>
-            <div class="col-md-8">
-                <form action="{{ action('TimeScheduleController@index')}}"method="get">
-                    <div class="form-group row">
-                        <div class="admin-news col-md-12 mx-auto">
-                            <div class="row">
-                                <table class="table table-dark">
-                                    <thead>
-                                        <tr>
-                                            <th width="25%">開始時刻</th>
-                                        　　<th width="25%">終了時刻</th> 
-                                        　　<th width="40%">内容</th>
-                                        　　<th width="10%">操作</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        @foreach($posts as $timeschdules)
-                                            <tr>
-                                                <th>{{ $timeschdules->start_time }}</th>
-                                                <td>{{ $timeschdules->end_time }}</td>
-                                                <td>{{ $timeschdules->content }}</td>
-                                                <td>
-                                                    <div>
-                                                        <a href="{{ action('TimeScheduleController@edit',['id'=> $timeschdules->id]) }}">編集</a>
-                                                    </div>
-                                                    <div>
-                                                        <a href="{{ action('TimeScheduleController@delete', ['id' => $timeschdules->id]) }}">削除</a>
-                                                    </div>
-                                                </td>
-                                            </tr>
-                                         @endforeach
-                                    </tbody>
-                                </table>
-                            </div>
-                        </div>
+                </div>
+                
+                
+                <!-- 居住地区 -->
+               <div class= "form-group row">
+               　    <label class="col-md-4" for="prefecture">居住地区</label>
+               　    <div class="col-md-8">
+               　    <select name="prefecture">
+                      @foreach(config('pref') as $index => $name)
+                        <option value="{{ $index }}" {{$profile_form->prefecture == $index ? "selected" : ""}}>{{$name}}</option>
+                      @endforeach
+                    </select>
                     </div>
-                </form>
-            </div>
+                </div>
+                
+        
+                <!-- 家族構成 -->
+              　<div class= "form-group row">
+               　    <label class="col-md-4"for="family_size">家族構成</label>
+               　    <div class="col-md-8">
+               　    <select  name="family_size">
+                      @foreach(config('family_size') as $index => $name)
+                        <option value="{{ $index }}" {{$profile_form->family_size == $index ? "selected" : ""}}>{{$name}}</option>
+                      @endforeach
+                    </select>
+                    </div>
+                </div>
+                
+                  
+                <!-- ワーキングスタイル -->
+                <div class= "form-group row">
+               　    <label class="col-md-4"for="working_days">ワーキングスタイル</label>
+               　    <div class="col-md-8">
+               　    <select name="working_days">
+                      @foreach(config('working_days') as $index => $name)
+                        <option value="{{ $index }}" {{$profile_form->working_days == $index ? "selected" : ""}}>{{$name}}</option>
+                      @endforeach
+                    </select>
+                    </div>
+                </div>
+                
+                
+                
+                <!-- 通勤時間 -->
+                <div class= "form-group row">
+               　    <label class="col-md-4"for="commuting_time">通勤時間</label>
+               　    <div class="col-md-8">
+               　    <select name="commuting_time">
+                      @foreach(config('commuting_time') as $index => $name)
+                        <option value="{{ $index }}" {{$profile_form->commuting_time == $index ? "selected" : ""}}>{{$name}}</option>
+                      @endforeach
+                    </select>
+                    </div>
+                </div>
+                
+                
+                <!-- パートナーの貢献度 -->
+                <div class= "form-group row">
+                    <label class="col-md-4" for="partner_service_level">パートナーの家事・育児貢献度</label> 
+                    <div class="col-md-8">
+                         <select name="partner_service_level">
+                      　 <option value="row" >低</option>
+                      　 <option value="middle" >中</option>
+                      　 <option value="high" >高</option>
+                      　  </select>
+                    </div>
+                </div>
+                
+            </form>
         </div>
     </div>
+</div>
+
 @endsection
