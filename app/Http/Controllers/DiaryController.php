@@ -34,21 +34,56 @@ class DiaryController extends Controller
             $diaries->save();
             
             
-            return redirect('diaries/create');//リダイレクトはURLのみ指定できる
+            return redirect('diaries');//リダイレクトはURLのみ指定できる
             }
             
             
         public function index(Request $request)
         {
-            $cond_title = $request->cond_title;
-            if ($cond_title != '') {
-            // 検索されたら検索結果を取得する
-            $posts = Diary::where('title', $cond_title)->get();
-            } else {
-            // それ以外はすべてのニュースを取得する
             $posts = Diary::all();
-            }
-            return view('diaries.index', ['posts' => $posts, 'cond_title' => $cond_title]);
-            }
-
+            // \Debugbar::info($posts);
+            return view('diaries.index',['posts' => $posts]);
         }
+        
+        
+        public function edit(Request $request)
+    {
+        $news = Diary::find($request->id);
+        if(empty($diaries)){
+            abort(404);
+        }
+        return view('admin.news.edit',['news_form' =>$news]);
+    }
+    
+    public function update(Request $request)
+    {
+        //Validationをかける
+        $this->validate($request,News::$rules);
+        //News Modelからデータを取得する
+        $news=News::find($request->id);
+        //送信されてきたフォームデータを格納する
+        $news_form =$request ->all();
+        if($request ->remove =='true'){
+            $news_form['image_path']=null;
+        }elseif($request ->file('image')){
+            $path =$request->file('image')->store('public/image');
+            $news_form['image_path'] = basename($path);
+        }else{
+            $news_form['image_path']=$news ->image_path;
+        
+        }
+        
+        unset($news_form['_token']);
+        unset($news_form['image']);
+        unset($news_form['remove']);
+        $news->fill($news_form)->save();
+        
+        $history =new History;
+        $history->news_id =$news->id;
+        $history->edited_at =Carbon::now();
+        $history->save();
+        
+        return redirect('admin/news');
+    }
+
+}

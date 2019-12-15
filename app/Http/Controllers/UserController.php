@@ -8,12 +8,15 @@ use Illuminate\Support\Facades\Auth;
 
 use App\User;
 
-class ProfileController extends Controller
+class UserController extends Controller
 {
-    public function edit()
+    public function serch(Request $request)
     {   
+        
+        $cond_title =$request ->cond_title;
         // ここでログイン中のユーザーの情報を取得する
-        $profile_form = Auth::user();
+        //検索されたら結果を取得する
+            $posts =users::where('title',$cond_title)->get();
         
         // viewファイルで使用できるように第二引数で渡す
         return view("profile.edit", ['profile_form' => $profile_form]);
@@ -22,7 +25,7 @@ class ProfileController extends Controller
      
         
 
-    public function update(Request $request)
+    public function list(Request $request)
     {
          //validationをかける
         //  $this ->validate($request, User::$rules);
@@ -42,6 +45,15 @@ class ProfileController extends Controller
          $user->save();
         
          return redirect('profile/edit');
+    }
+    
+    public function detail()
+    {   
+        // ここでログイン中のユーザーの情報を取得する
+        $profile_form = Auth::user();
+        
+        // viewファイルで使用できるように第二引数で渡す
+        return view("profile.edit", ['profile_form' => $profile_form]);
     }
 }
 

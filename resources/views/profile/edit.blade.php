@@ -44,7 +44,7 @@
                    　<div class= "form-group row">
                    　    <label class="col-md-4" for="prefecture">居住地区</label>
                    　    <div class="col-md-8">
-                   　    <select>
+                   　    <select name="prefecture">
                           @foreach(config('pref') as $index => $name)
                             <option value="{{ $index }}" {{$profile_form->prefecture == $index ? "selected" : ""}}>{{$name}}</option>
                           @endforeach
@@ -57,7 +57,7 @@
                    　<div class= "form-group row">
                    　    <label class="col-md-4"for="family_size">家族構成</label>
                    　    <div class="col-md-8">
-                   　    <select>
+                   　    <select  name="family_size">
                           @foreach(config('family_size') as $index => $name)
                             <option value="{{ $index }}" {{$profile_form->family_size == $index ? "selected" : ""}}>{{$name}}</option>
                           @endforeach
@@ -70,7 +70,7 @@
                     <div class= "form-group row">
                    　    <label class="col-md-4"for="working_days">ワーキングスタイル</label>
                    　    <div class="col-md-8">
-                   　    <select>
+                   　    <select name="working_days">
                           @foreach(config('working_days') as $index => $name)
                             <option value="{{ $index }}" {{$profile_form->working_days == $index ? "selected" : ""}}>{{$name}}</option>
                           @endforeach
@@ -82,9 +82,9 @@
                     
                     <!-- 通勤時間 -->
                     <div class= "form-group row">
-                   　    <label class="col-md-4"for="commuting_times">通勤時間</label>
+                   　    <label class="col-md-4"for="commuting_time">通勤時間</label>
                    　    <div class="col-md-8">
-                   　    <select>
+                   　    <select name="commuting_time">
                           @foreach(config('commuting_time') as $index => $name)
                             <option value="{{ $index }}" {{$profile_form->commuting_time == $index ? "selected" : ""}}>{{$name}}</option>
                           @endforeach
