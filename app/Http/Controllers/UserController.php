@@ -10,41 +10,35 @@ use App\User;
 
 class UserController extends Controller
 {
-    public function serch(Request $request)
+    public function list(Request $request)
     {   
         
-        $cond_title =$request ->cond_title;
-        // ここでログイン中のユーザーの情報を取得する
-        //検索されたら結果を取得する
-            $posts =users::where('title',$cond_title)->get();
+        #キーワード受け取り
+        $keyword = $request->input('keyword');
         
-        // viewファイルで使用できるように第二引数で渡す
-        return view("profile.edit", ['profile_form' => $profile_form]);
+        #クエリ生成
+        $query = User::query();
+        
+        $query->where('gender'); 
+        $query->where('prefecture');
+        $query->where('familysize'); 
+        $query->where('working_days'); 
+        $query->where('commuting_time'); 
+        $query->where('partner_service_level');
+        
+        $posts = $query->get();
+        
+        return view('users.serch',['posts' =>$posts]);
+        
     }
       
-     
-        
-
-    public function list(Request $request)
+    
+    
+    public function serch(Request $request)
     {
-         //validationをかける
-        //  $this ->validate($request, User::$rules);
          
-         //User Modelからデータを取得する
-         $user=User::find($request->id);
-         
-         //送信されてきたフォームデータを格納する
-         $profile_form= $request->all();
-         
-         unset($profile_form['_token']);
-         \Debugbar::info($profile_form);
-        \Debugbar::info($user);
-        \Debugbar::info($profile_form["gender"]);
-         $user->fill($profile_form);
-         //  $this ->validate($request, User::$rules);
-         $user->save();
         
-         return redirect('profile/edit');
+         return view('users/serch');
     }
     
     public function detail()

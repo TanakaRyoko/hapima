@@ -88,4 +88,24 @@
     </div>
 </div>
 
+
+
+{!! Form::open() !!}
+    タイトル:{!! Form::text('s_title', $s_title) !!}
+    カテゴリー:{!! Form::text('s_category', $s_category) !!}
+    監督:{!! Form::text('s_production', $s_production) !!}
+    出演:{!! Form::text('s_performer', $s_performer) !!}
+    {!! Form::submit('検索') !!}
+{!! Form::close() !!}
+
+@foreach($movies as $movie)
+<div>
+    <a>{{ $movie->id }}</a>
+    <a>{{ $movie->title }}</a>
+    <a>{{ $movie->category }}</a>
+    <a>{{ $movie->production }}</a>
+    <a>{{ $movie->performer }}</a>
+</div>
+@endforeach
+
 @endsection
