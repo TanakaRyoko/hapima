@@ -30,11 +30,11 @@ Route::get('/timeschedules/create', 'TimeScheduleController@add')->middleware('a
 Route::post('/timeschedules/create', 'TimeScheduleController@create')->middleware('auth');
 Route::get('/timeschedules/edit', 'TimeScheduleController@edit')->middleware('auth');
 Route::post('/timeschedules/edit', 'TimeScheduleController@update')->middleware('auth');
+Route::get('/timeschedules/delete', 'TimeScheduleController@delete')->middleware('auth');
 
-
-Route::get('/users/search', 'UserContoller@search')->middleware('auth');
+Route::get('/users/search', 'UserController@search')->middleware('auth');
 Route::get('/users/list?name=aaa', 'UserController@list')->middleware('auth');
-Route::get('/users/detail/{id}', 'UserContoller@detail')->middleware('auth');
+Route::get('/users/detail/{id}', 'UserController@detail')->middleware('auth');
 
 Auth::routes();
 

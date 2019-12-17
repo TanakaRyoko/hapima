@@ -45,5 +45,50 @@ class TimeScheduleController extends Controller
             // \Debugbar::info($posts);
             return view('timeschedule.index',['posts' => $posts]);
         }
-}
 
+        public function edit(Request $request)
+        {
+            $timeschedules =TimeSchedule::find($request->id);
+            if(empty($timeschedules)){
+                abort(404);
+            }
+            return view('timeschedule.edit',['timeschedule_form' => $timeschedules]);
+        }
+
+
+
+
+
+        public function delete(Request $request)
+    
+        {    //該当するNews Modelを取得
+            $timeschedules=TimeSchedule::find($request->id);
+            
+            //削除する
+            $timeschedules->delete();
+            return redirect('timeschedules');
+        }
+        
+        public function update(Request $request)
+        {
+            
+            $user = Auth::user();
+            //Varidationを行う
+            $this->validate($request,TimeSchedule::$rules);
+            $timeschedules=new TimeSchedule;
+            $form=$request->all();
+            $form['user_id'] = $user->id;
+            
+            //フォームから送信されてきた_tokenを削除する
+            unset($form['_token']);
+            
+            //データベースに保存する
+            $timeschedules->fill($form);
+            
+            $timeschedules->save();
+            
+            
+            return redirect('timeschedules');
+        }
+
+}

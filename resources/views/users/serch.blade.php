@@ -6,7 +6,7 @@
     <div class="row">
         <h2>ユーザー検索/h2>
         <div class="col-md-8">
-            <form action="{{ action('UserController@serch')}}"method="get">
+            <form action="{{ action('UserController@list')}}"method="get">
                 
                 <!-- 性別 -->
                 <div class= "form-group row">

@@ -10,7 +10,14 @@ use App\User;
 
 class UserController extends Controller
 {
-    public function list(Request $request)
+    
+    public function search()
+    {
+         
+         return view('users/serch');
+    }
+    
+    Public function list(Request $request)
     {   
         
         #キーワード受け取り
@@ -34,12 +41,7 @@ class UserController extends Controller
       
     
     
-    public function serch(Request $request)
-    {
-         
-        
-         return view('users/serch');
-    }
+    
     
     public function detail()
     {   
