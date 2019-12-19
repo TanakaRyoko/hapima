@@ -12,8 +12,8 @@
                 <div class= "form-group row">
                     <label class="col-md-4">性別</label>
                     <div class="col-md-8">
-                        <input type="radio" name="gender" value="male"{{$profile_form->gender === 'male' ? 'checked' : ''}}>男性
-                        <input type="radio" name="gender" value="female"{{$profile_form->gender === 'female' ? 'checked' : ''}}>女性
+                        <input type="radio" name="gender" value="male"{{$query->gender === 'male' ? 'checked' : ''}}>男性
+                        <input type="radio" name="gender" value="female"{{$query->gender === 'female' ? 'checked' : ''}}>女性
                     </div>
                 </div>
                 
@@ -24,7 +24,7 @@
                　    <div class="col-md-8">
                　    <select name="prefecture">
                       @foreach(config('pref') as $index => $name)
-                        <option value="{{ $index }}" {{$profile_form->prefecture == $index ? "selected" : ""}}>{{$name}}</option>
+                        <option value="{{ $index }}" {{$query->prefecture == $index ? "selected" : ""}}>{{$name}}</option>
                       @endforeach
                     </select>
                     </div>
@@ -37,7 +37,7 @@
                　    <div class="col-md-8">
                　    <select  name="family_size">
                       @foreach(config('family_size') as $index => $name)
-                        <option value="{{ $index }}" {{$profile_form->family_size == $index ? "selected" : ""}}>{{$name}}</option>
+                        <option value="{{ $index }}" {{$query->family_size == $index ? "selected" : ""}}>{{$name}}</option>
                       @endforeach
                     </select>
                     </div>
@@ -50,7 +50,7 @@
                　    <div class="col-md-8">
                　    <select name="working_days">
                       @foreach(config('working_days') as $index => $name)
-                        <option value="{{ $index }}" {{$profile_form->working_days == $index ? "selected" : ""}}>{{$name}}</option>
+                        <option value="{{ $index }}" {{$query->working_days == $index ? "selected" : ""}}>{{$name}}</option>
                       @endforeach
                     </select>
                     </div>
@@ -64,7 +64,7 @@
                　    <div class="col-md-8">
                　    <select name="commuting_time">
                       @foreach(config('commuting_time') as $index => $name)
-                        <option value="{{ $index }}" {{$profile_form->commuting_time == $index ? "selected" : ""}}>{{$name}}</option>
+                        <option value="{{ $index }}" {{$query->commuting_time == $index ? "selected" : ""}}>{{$name}}</option>
                       @endforeach
                     </select>
                     </div>
