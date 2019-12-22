@@ -5,37 +5,38 @@ namespace App\Http\Controllers;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
-
+use Collective\Html\HtmlServiceProvider;
 use App\User;
 
 class UserController extends Controller
 {
     
-    public function search()
+    public function search(Request $request)
     {
-         
-         return view('users/serch');
+        //  $user_form = User::all();
+         return view('users/search');
     }
     
     Public function list(Request $request)
     {   
         
-        #キーワード受け取り
-        $keyword = $request->input('keyword');
-        
-        #クエリ生成
+        // クエリ生成
         $query = User::query();
-        
+      \Debugbar::info($query);
+        if ($query) {
+            
         $query->where('gender'); 
         $query->where('prefecture');
-        $query->where('familysize'); 
+        $query->where('family_size'); 
         $query->where('working_days'); 
         $query->where('commuting_time'); 
         $query->where('partner_service_level');
-        
-        $posts = $query->get();
-        
-        return view('users.serch',['posts' =>$posts]);
+        \Debugbar($query);
+        $user_form = $query->get();
+        }else{
+            abort(404);   
+        }
+        return view('users.list',['user_form' =>$user_form]);
         
     }
       
@@ -46,10 +47,10 @@ class UserController extends Controller
     public function detail()
     {   
         // ここでログイン中のユーザーの情報を取得する
-        $profile_form = Auth::user();
+        $user_form = Auth::user();
         
         // viewファイルで使用できるように第二引数で渡す
-        return view("profile.edit", ['profile_form' => $profile_form]);
+        return view("user.detail", ['user_form' => $user_form]);
     }
 }
 

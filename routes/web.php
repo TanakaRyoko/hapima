@@ -33,7 +33,7 @@ Route::post('/timeschedules/edit', 'TimeScheduleController@update')->middleware(
 Route::get('/timeschedules/delete', 'TimeScheduleController@delete')->middleware('auth');
 
 Route::get('/users/search', 'UserController@search')->middleware('auth');
-Route::get('/users/list?name=aaa', 'UserController@list')->middleware('auth');
+Route::get('/users/list', 'UserController@list')->middleware('auth');
 Route::get('/users/detail/{id}', 'UserController@detail')->middleware('auth');
 
 Auth::routes();

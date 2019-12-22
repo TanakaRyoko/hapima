@@ -46,6 +46,7 @@ class TimeScheduleController extends Controller
             return view('timeschedule.index',['posts' => $posts]);
         }
 
+
         public function edit(Request $request)
         {
             $timeschedules =TimeSchedule::find($request->id);

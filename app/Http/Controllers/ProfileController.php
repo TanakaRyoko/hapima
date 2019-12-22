@@ -34,9 +34,7 @@ class ProfileController extends Controller
          $profile_form= $request->all();
          
          unset($profile_form['_token']);
-         \Debugbar::info($profile_form);
-        \Debugbar::info($user);
-        \Debugbar::info($profile_form["gender"]);
+        
          $user->fill($profile_form);
          //  $this ->validate($request, User::$rules);
          $user->save();
