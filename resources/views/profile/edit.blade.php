@@ -98,6 +98,7 @@
                         <label class="col-md-4" for="partner_service_level">パートナーの家事・育児貢献度</label> 
                         <div class="col-md-8">
                              <select name="partner_service_level">
+                             <option value="" >選択してください</option>    
                           　 <option value="row" >低</option>
                           　 <option value="middle" >中</option>
                           　 <option value="high" >高</option>

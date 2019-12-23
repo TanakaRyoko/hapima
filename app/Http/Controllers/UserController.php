@@ -19,23 +19,24 @@ class UserController extends Controller
     
     Public function list(Request $request)
     {   
-        
+        // \Debugbar::info($request);
         // クエリ生成
         $query = User::query();
-      \Debugbar::info($query);
         if ($query) {
             
-        $query->where('gender'); 
-        $query->where('prefecture');
-        $query->where('family_size'); 
-        $query->where('working_days'); 
-        $query->where('commuting_time'); 
-        $query->where('partner_service_level');
-        \Debugbar($query);
+        $query->where('gender', $request->input("gender"));
+        $query->where('prefecture', $request->input("prefecture"));
+        $query->where('family_size', $request->input("family_size"));
+        $query->where('working_days', $request->input("working_days"));
+        $query->where('commuting_time', $request->input("commuting_time"));
+        $query->where('partner_service_level', $request->input("partner_service_level"));
+        // // \Debugbar::info($query);
         $user_form = $query->get();
+        \Debugbar::info($user_form);
         }else{
             abort(404);   
         }
+        
         return view('users.list',['user_form' =>$user_form]);
         
     }
@@ -50,7 +51,7 @@ class UserController extends Controller
         $user_form = Auth::user();
         
         // viewファイルで使用できるように第二引数で渡す
-        return view("user.detail", ['user_form' => $user_form]);
+        return view("users.detail", ['user_form' => $user_form]);
     }
 }
 
