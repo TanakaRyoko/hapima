@@ -22,17 +22,19 @@ class UserController extends Controller
         // \Debugbar::info($request);
         // クエリ生成
         $query = User::query();
+        
         if ($query) {
             
         $query->where('gender', $request->input("gender"));
+        dd($query);
         $query->where('prefecture', $request->input("prefecture"));
         $query->where('family_size', $request->input("family_size"));
         $query->where('working_days', $request->input("working_days"));
         $query->where('commuting_time', $request->input("commuting_time"));
         $query->where('partner_service_level', $request->input("partner_service_level"));
-        // // \Debugbar::info($query);
+        
         $user_form = $query->get();
-        \Debugbar::info($user_form);
+        
         }else{
             abort(404);   
         }
@@ -45,13 +47,13 @@ class UserController extends Controller
     
     
     
-    public function detail()
+    public function detail(Request $request)
     {   
-        // ここでログイン中のユーザーの情報を取得する
-        $user_form = Auth::user();
+        $select_user=$request->id;
+       dd($select_user);
         
         // viewファイルで使用できるように第二引数で渡す
-        return view("users.detail", ['user_form' => $user_form]);
+        return view("users.detail", ['select_user' => $select_user]);
     }
 }
 

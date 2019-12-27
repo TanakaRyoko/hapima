@@ -29,11 +29,11 @@
                                             <tr>
                                                 <th>{{ $user_forms->name}}</th>
                                                 <td>{{ $user_forms->gender }}</td>
-                                                <td>{{ $user_forms->prefecture }}</td>
-                                                <td>{{ $user_forms->family_size }}</td>
-                                                <td>{{ $user_forms->working_days }}</td>
-                                                <td>{{ $user_forms->commuting_time }}</td>
-                                                <td>{{ $user_forms->partner_service_level}}</td>
+                                                <td>{{ config('pref')[$user_forms->prefecture] }}</td>
+                                                <td>{{ config('family_size')[$user_forms->family_size] }}</td>
+                                                <td>{{ config('working_days')[$user_forms->working_days] }}</td>
+                                                <td>{{ config('commuting_time')[$user_forms->commuting_time] }}</td>
+                                                <td>{{ config('partner_service_level')[$user_forms->partner_service_level]}}</td>
                                                 <td>
                                                     <div>
                                                         <a href="{{ action('UserController@detail',['id'=> $user_forms->id]) }}">選択</a>

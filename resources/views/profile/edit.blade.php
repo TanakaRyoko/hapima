@@ -33,8 +33,8 @@
                      <div class= "form-group row">
                         <label class="col-md-4">性別</label>
                         <div class="col-md-8">
-                            <input type="radio" name="gender" value="male"{{$profile_form->gender === 'male' ? 'checked' : ''}}>男性
-                            <input type="radio" name="gender" value="female"{{$profile_form->gender === 'female' ? 'checked' : ''}}>女性
+                            <input type="radio" name="gender" value="男性"{{$profile_form->gender === '男性' ? 'checked' : ''}}>男性
+                            <input type="radio" name="gender" value="女性"{{$profile_form->gender === '女性' ? 'checked' : ''}}>女性
                         </div>
                     </div>
                     
@@ -99,9 +99,9 @@
                         <div class="col-md-8">
                              <select name="partner_service_level">
                              <option value="" >選択してください</option>    
-                          　 <option value="row" >低</option>
-                          　 <option value="middle" >中</option>
-                          　 <option value="high" >高</option>
+                          　 <option value="low"{{$profile_form->partner_service_level === 'low' ? 'checked' : ''}} >低</option>
+                          　 <option value="middle" {{$profile_form->partner_service_level === 'middle' ? 'checked' : ''}}>中</option>
+                          　 <option value="high" {{$profile_form->partner_service_level === 'high' ? 'checked' : ''}}>高</option>
                           　  </select>
                         </div>
                     </div>
