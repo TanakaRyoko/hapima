@@ -26,7 +26,6 @@ class UserController extends Controller
         if ($query) {
             
         $query->where('gender', $request->input("gender"));
-        dd($query);
         $query->where('prefecture', $request->input("prefecture"));
         $query->where('family_size', $request->input("family_size"));
         $query->where('working_days', $request->input("working_days"));

@@ -79,7 +79,7 @@
                     <div class="col-md-8">
                          <select name="partner_service_level">
                          <option value="" >選択してください</option>    
-                      　 <option value="row" >低</option>
+                      　 <option value="low" >低</option>
                       　 <option value="middle" >中</option>
                       　 <option value="high" >高</option>
                       　  </select>
