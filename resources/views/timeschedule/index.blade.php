@@ -25,7 +25,7 @@
                         </tr>
                     </thead>
                     <tbody>
-                        @foreach($posts as $timeschdules)
+                        @foreach ($posts -> sortBy('start_time') as $timeschdules)
                             <tr>
                                 <th>{{ $timeschdules->start_time }}</th>
                                 <td>{{ $timeschdules->end_time }}</td>
@@ -37,7 +37,7 @@
                                     <div>
                                         <a href="{{ action('TimeScheduleController@delete', ['id' => $timeschdules->id]) }}">削除</a>
                                     </div>
-                                </td>
+                                </td>    
                             </tr>
                          @endforeach
                     </tbody>

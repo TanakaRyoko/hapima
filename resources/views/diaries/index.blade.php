@@ -10,13 +10,14 @@
         <br>
         <div class="row">
             <div class="col-md-4">
-                <a href="{{ action('DiaryController@index')}}" role="button" class="btn btn-primary">日々の記録追加</a>
+                <a href="{{ action('DiaryController@create')}}" role="button" class="btn btn-primary">日々の記録追加</a>
             </div>
+            <br>
             <br>
         </div>    
         <div class="col-md-12">
             <div class="row">
-                <table class="table table-stripe">
+                <table class="table table-bordered">
                     <thead>
                         <tr>
                             <th width="30%">日付</th>

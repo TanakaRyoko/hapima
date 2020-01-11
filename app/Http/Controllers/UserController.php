@@ -7,6 +7,8 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Collective\Html\HtmlServiceProvider;
 use App\User;
+use App\TimeSchedule;
+use App\Diary;
 
 class UserController extends Controller
 {
@@ -33,7 +35,7 @@ class UserController extends Controller
         $query->where('partner_service_level', $request->input("partner_service_level"));
         
         $user_form = $query->get();
-        
+        // dd($user_form);
         }else{
             abort(404);   
         }
@@ -46,13 +48,15 @@ class UserController extends Controller
     
     
     
-    public function detail(Request $request)
+    public function detail($id)
     {   
-        $select_user=$request->id;
-       dd($select_user);
-        
+        $user_form = User::where('id',$id)->get();
+        $timeschedule_form = TimeSchedule::where('id',$id)->get();
+        // dd($timeschedule_form);
+        $diary_form = Diary::where('id',$id)->get();
+       
         // viewファイルで使用できるように第二引数で渡す
-        return view("users.detail", ['select_user' => $select_user]);
+        return view("users.detail", ['user_form' => $user_form,'timeschedule_form'=>$timeschedule_form,'diary_form'=>$diary_form]);
     }
 }
 

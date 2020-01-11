@@ -36,6 +36,9 @@ Route::get('/users/search', 'UserController@search')->middleware('auth');
 Route::get('/users/list', 'UserController@list')->middleware('auth');
 Route::get('/users/detail/{id}', 'UserController@detail')->middleware('auth');
 
+
+
+
 Auth::routes();
 
 

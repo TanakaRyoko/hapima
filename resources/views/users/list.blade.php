@@ -15,19 +15,19 @@
                                 <table class="table table-stripe">
                                     <thead>
                                         <tr>
-                                            <th width="20%">氏名</th>
+                                            <th width="10%">氏名</th>
                                         　　<th width="10%">性別</th> 
-                                        　　<th width="20%">居住地区</th>
-                                        　　<th width="20%">家族構成</th>
-                                        　　<th width="10%">ワーキングスタイル</th>
+                                        　　<th width="15%">居住地区</th>
+                                        　　<th width="15%">家族構成</th>
+                                        　　<th width="20%">ワーキングスタイル</th>
                                         　　<th width="10%">通勤時間</th>
-                                        　　<th width="10%">パートナーの家事育児貢献度</th>
+                                        　　<th width="20%">パートナーの家事育児貢献度</th>
                                     　　</tr>
                                     </thead>
                                     <tbody>
                                         @foreach($user_form as $user_forms)
                                             <tr>
-                                                <th>{{ $user_forms->name}}</th>
+                                                <td>{{ $user_forms->name}}</td>
                                                 <td>{{ $user_forms->gender }}</td>
                                                 <td>{{ config('pref')[$user_forms->prefecture] }}</td>
                                                 <td>{{ config('family_size')[$user_forms->family_size] }}</td>
@@ -36,11 +36,11 @@
                                                 <td>{{ config('partner_service_level')[$user_forms->partner_service_level]}}</td>
                                                 <td>
                                                     <div>
-                                                        <a href="{{ action('UserController@detail',['id'=> $user_forms->id]) }}">選択</a>
+                                                        <a href="{{ action('UserController@detail',['user_form'=> $user_forms]) }}">選択</a>
                                                     </div>
                                                 </td>
                                             </tr>
-                                         @endforeach
+                                        @endforeach
                                     </tbody>
                                 </table>
                             </div>

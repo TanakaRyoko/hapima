@@ -53,7 +53,9 @@ class TimeScheduleController extends Controller
             if(empty($timeschedules)){
                 abort(404);
             }
+            
             return view('timeschedule.edit',['timeschedule_form' => $timeschedules]);
+            
         }
 
 
@@ -73,23 +75,23 @@ class TimeScheduleController extends Controller
         public function update(Request $request)
         {
             
-            $user = Auth::user();
+            
             //Varidationを行う
             $this->validate($request,TimeSchedule::$rules);
-            $timeschedules=new TimeSchedule;
-            $form=$request->all();
-            $form['user_id'] = $user->id;
+            $timeschedules=TimeSchedule::find($request->id);
+            
+            $timeschedules_form=$request->all();
+            dd($timeschedules_form);
+            
             
             //フォームから送信されてきた_tokenを削除する
-            unset($form['_token']);
+            unset($timeschedules_form['_token']);
             
             //データベースに保存する
-            $timeschedules->fill($form);
-            
+            $timeschedules->fill($timeschedules_form->all());
             $timeschedules->save();
-            
-            
             return redirect('timeschedules');
         }
 
 }
+
