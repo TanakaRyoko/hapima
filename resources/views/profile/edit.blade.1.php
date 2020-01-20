@@ -1,11 +1,11 @@
 @extends('layouts.a')
-@section('title','{{ Auth::user()->name }}')
+@section('title','プロフィールの編集')
 
 @section('content')
     <div class= "container">
         <div class= "row">
             <div class= "col-md-8 mx-auto">
-                <h2>{{ Auth::user()->name }}."さん"</h2>
+                <h2>プロフィールの編集</h2>
                 <form action= "{{ action('ProfileController@update') }}" method="post" enctype="multipart/form-data">      
                      @if(count($errors) >0)
                     <ul>

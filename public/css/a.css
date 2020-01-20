@@ -1,12 +1,12 @@
 body {
   background-repeat: no-repeat;
   background-position: center;
-  background-color: #FF9999;
+  background-color: #0000;
   color: #fff;
 }
 
 .navbar-laravel {
-  background-color: #FF9999;
+  background-color: #000000;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.04);
 }
 
@@ -24,7 +24,7 @@ body {
 
 .list-group-item {
   border-color: #fff;
-  background-color: #FF9999;
+  background-color: #000000;
 }
 
 .login-box {

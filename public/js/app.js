@@ -49462,9 +49462,9 @@ __webpack_require__.r(__webpack_exports__);
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! /home/ec2-user/environment/hapima/resources/js/app.js */"./resources/js/app.js");
-__webpack_require__(/*! /home/ec2-user/environment/hapima/resources/sass/app.scss */"./resources/sass/app.scss");
-module.exports = __webpack_require__(/*! /home/ec2-user/environment/hapima/resources/sass/a.scss */"./resources/sass/a.scss");
+__webpack_require__(/*! /home/ec2-user/environment/hapima2/resources/js/app.js */"./resources/js/app.js");
+__webpack_require__(/*! /home/ec2-user/environment/hapima2/resources/sass/app.scss */"./resources/sass/app.scss");
+module.exports = __webpack_require__(/*! /home/ec2-user/environment/hapima2/resources/sass/a.scss */"./resources/sass/a.scss");
 
 
 /***/ })

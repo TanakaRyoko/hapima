@@ -12,16 +12,17 @@
                     <div class="form-group row">
                         <div class="profile col-md-12 mx-auto">
                             <div class="row">
-                                <table class="table table-stripe">
+                                <table class="table table-bordered">
                                     <thead>
                                         <tr>
                                             <th width="10%">氏名</th>
                                         　　<th width="10%">性別</th> 
-                                        　　<th width="15%">居住地区</th>
-                                        　　<th width="15%">家族構成</th>
+                                        　　<th width="10%">居住地区</th>
+                                        　　<th width="10%">家族構成</th>
                                         　　<th width="20%">ワーキングスタイル</th>
                                         　　<th width="10%">通勤時間</th>
                                         　　<th width="20%">パートナーの家事育児貢献度</th>
+                                        　　<th width="10%"></th>
                                     　　</tr>
                                     </thead>
                                     <tbody>

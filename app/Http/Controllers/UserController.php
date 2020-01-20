@@ -43,17 +43,15 @@ class UserController extends Controller
         return view('users.list',['user_form' =>$user_form]);
         
     }
-      
-    
     
     
     
     public function detail($id)
     {   
         $user_form = User::where('id',$id)->get();
-        $timeschedule_form = TimeSchedule::where('id',$id)->get();
+        $timeschedule_form = TimeSchedule::where('user_id',$id)->get();
         // dd($timeschedule_form);
-        $diary_form = Diary::where('id',$id)->get();
+        $diary_form = Diary::where('user_id',$id)->get();
        
         // viewファイルで使用できるように第二引数で渡す
         return view("users.detail", ['user_form' => $user_form,'timeschedule_form'=>$timeschedule_form,'diary_form'=>$diary_form]);

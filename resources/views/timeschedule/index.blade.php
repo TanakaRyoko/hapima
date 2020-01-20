@@ -12,6 +12,7 @@
                 <a href="{{ action('TimeScheduleController@create')}}" role="button" class="btn btn-primary">タイムスケジュール追加</a>
             </div>
             <br>
+            <br>
         </div>    
         <div class="col-md-8">
             <div class="row">
@@ -46,3 +47,4 @@
         </div>
     </div>
 @endsection
+

@@ -73,12 +73,19 @@ class DiaryController extends Controller
         public function delete(Request $request)
         {
             //該当するDiary Modelを取得
-            {$diaries=Diary::find($request->id);
+            $diaries=Diary::find($request->id);
             
             //削除する
             $diaries->delete();
             return redirect('diaries');
-    }
+            
         }
+        
+        // public function detail($user_id)
+        // {
+        //     dd($user_id);
+        //     $diary=Diary::where('id',$id)->get();
+        //     return view('diaries.detail',['diary' => $diary]);
+        // }
 
 }

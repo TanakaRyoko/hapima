@@ -48,8 +48,7 @@
                             <tr>
                                 <th width="25%">開始時刻</th>
                             　　<th width="25%">終了時刻</th> 
-                            　　<th width="40%">内容</th>
-                            　　<th width="10%">操作</th>
+                            　　<th width="50%">内容</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -79,6 +78,11 @@
                             <tr>
                                 <td>{{ $diary_forms -> date }}</td>
                                 <td>{{ $diary_forms -> content }}</td>
+                                <td>
+                                    <div>
+                                        <!--<a href="{{ action('UserController@detail') }}">選択</a>-->
+                                    </div>
+                                </td>    
                             </tr>
                         @endforeach
                     </tbody>  
