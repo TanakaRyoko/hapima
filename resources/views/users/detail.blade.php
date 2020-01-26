@@ -52,7 +52,7 @@
                             </tr>
                         </thead>
                         <tbody>
-                            @foreach($timeschedule_form as $timeschedule_forms)
+                            @foreach($timeschedule_form-> sortBy('start_time') as $timeschedule_forms)
                                 <tr>
                                     <th>{{ $timeschedule_forms->start_time }}</th>
                                     <td>{{ $timeschedule_forms->end_time }}</td>
@@ -76,8 +76,8 @@
                     <tbody>
                         @foreach($diary_form as $diary_forms)
                             <tr>
-                                <td>{{ $diary_forms -> date }}</td>
-                                <td>{{ $diary_forms -> content }}</td>
+                                <td>{{ $diary_forms ->date }}</td>
+                                <td>{{ $diary_forms ->content }}</td>
                                 <td>
                                     <div>
                                         <!--<a href="{{ action('UserController@detail') }}">選択</a>-->
