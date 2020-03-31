@@ -76,13 +76,9 @@
                     <tbody>
                         @foreach($diary_form as $diary_forms)
                             <tr>
-                                <td>{{ $diary_forms ->date }}</td>
-                                <td>{{ $diary_forms ->content }}</td>
+                                <td>{{ $diary_forms -> date }}</td>
+                                <td>{{ $diary_forms -> content }}</td>
                                 <td>
-                                    <div>
-                                        <!--<a href="{{ action('UserController@detail') }}">選択</a>-->
-                                    </div>
-                                </td>    
                             </tr>
                         @endforeach
                     </tbody>  

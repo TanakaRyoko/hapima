@@ -40,7 +40,7 @@ class DiaryController extends Controller
             
         public function index(Request $request)
         {
-            $posts = Diary::all();
+            $posts = Diary::find($request->id);
             // \Debugbar::info($posts);
             return view('diaries.index',['posts' => $posts]);
         }
